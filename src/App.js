@@ -11,9 +11,9 @@ function App() {
       <Person name = "Tareq Rahman" email = "pqr@gmail.com"></Person>
       <Person name = "Shabuz" email = "tyu@gmail.com"></Person>
       <h2 style={{fontSize : "2.5rem", borderBottom: '3px solid co', paddingBottom: '5px', fontWeight: 'bold'}}>Component of Friends</h2>
-      {/* <Friend name = "Mosabbir Hossain" number = '0' ></Friend> */}
-      <Friend name = "Masud Rana" number = '4' gfName = {["halima","galima","jalima","nilima"]}></Friend>
-      <Friend name = "Tareq" number = '3' gfName = {["sadia","kadia","madia"]}></Friend>
+      <Friend name = "Mosabbir Hossain" number = '0' gfName = {[]}></Friend>
+      <Friend name = "Masud Rana" number = {4} gfName = {["halima","galima","jalima","nilima"]}></Friend>
+      <Friend name = "Tareq" number = {3} gfName = {["sadia","kadia","madia"]}></Friend>
     </div>
   );
 }
@@ -28,7 +28,7 @@ function Person(props) {
 }
 
 function Friend(props) {
-  console.log(props)
+console.log(props)
   return (
     <div style={{backgroundColor: 'coral',
       color: 'white',
@@ -37,11 +37,14 @@ function Friend(props) {
       margin: '10px',
       borderRadius: '10px'
       }}>
-      <h1>{props.name} has {props.number !== '0'? props.number: "No"} girlfriends.</h1>
-      <p>Name: {props.gfName.length !== 0? props.gfName.map(name => {
-          return (name);
+      <h1>{props.name} has {props.number !== 0 ? props.number: "No"} girlfriends.</h1>
+      <h3>Name: </h3>
+      {props.gfName.length !== 0 ? props.gfName.map((name) => 
+          <li>{name}</li>
           
-        }).join(", ") : "Single"}</p> <br />
+        ):<p>Single</p>
+      }
+      
     </div>
   )
 }
