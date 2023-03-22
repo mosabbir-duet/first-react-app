@@ -31,14 +31,14 @@ function App() {
   );
 }
 
-// data fetch from api 
+//create ExternalUsers component for  data fetch from api 
 function ExternalUsers() {
 
   const [users, setUsers] = useState([]);
   useEffect( () => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
-      .then(data => setUsers(data)) //setUsers set the users
+      .then(data => setUsers(data)) //setUsers set the users value
   } , [])
   return (
     <div style={{display: "grid", gridTemplateColumns: "repeat(3, 1fr)"}}>
@@ -49,6 +49,8 @@ function ExternalUsers() {
   )
 
 }
+
+// create displayUsersInformation component for display api  value and receive value using parameter
 
 function displayUsersInformation(props) {
   console.log(props)
@@ -69,18 +71,20 @@ function displayUsersInformation(props) {
   )
 }
 
+// create Counter component 
 
 function Counter() {
 
   const [count, setCount] = useState(0);
-  const increseCount = () => setCount(count + 1);
-  const decreaseCount = () => setCount(count - 1);
+  const increseCount = () => setCount(count + 1); 
+  // const decreaseCount = () => setCount(count - 1); 
 
   return (
     <div style={{border: "2px solid coral", borderRadius: "8px", margin: "10px 50px"}}>
       <h2>Count: {count}</h2>
       <button onClick={increseCount} className = 'btn-style'>increase</button>
-      <button onClick={decreaseCount} className = 'btn-style'>decrease</button>
+      {/* can be write function body  in onclick */}
+      <button onClick={setCount(count - 1)} className = 'btn-style'>decrease</button> 
     </div>
   )
 }
