@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -33,6 +38,24 @@
 
 .App-link {
   color: #61dafb;
+}
+
+/* btn css  */
+
+.btn-style {
+  padding: 10px 20px;
+  color: brown;
+  background-color: aquamarine;
+  border-radius: 8px;
+  border: none;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.btn-style:hover {
+  background-color: rgb(40, 200, 147);
 }
 
 /* component css  */
